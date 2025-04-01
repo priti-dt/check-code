@@ -292,7 +292,7 @@ class EnquirydetailsController extends ResponseController
      *
      * @return void
      */
-    function getStatusDropdown(Request $request)
+    public function getStatusDropdown(Request $request)
     {
         if ($request->id > 0) {
             $data_query = EnquiryPoDetail::where('id', $request->id);
@@ -327,7 +327,7 @@ class EnquirydetailsController extends ResponseController
         return $this->sendError($response);
     }
 
-    function involvesecondarycrm(Request $request)
+    public function involvesecondarycrm(Request $request)
     {
         if ($request->id > 0) {
             $existingRecord = EnquiryPoDetail::find($request->id);
@@ -355,7 +355,7 @@ class EnquirydetailsController extends ResponseController
         }
     }
 
-    function doescalation()
+    public function doescalation()
     {
 
         //EscalateEnquiry

@@ -45,7 +45,6 @@ class UserController extends ResponseController
                 $responseArr['message'] = $validator->errors();
                 $responseArr['status'] = 406;
                 return $this->sendError($responseArr);
-                $qry = "";
             } else {
                 $filepath = null;
                 if ($request->hasFile('profile_picture')) {

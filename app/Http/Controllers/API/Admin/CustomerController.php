@@ -388,7 +388,7 @@ class CustomerController extends ResponseController
      *
      * @return void
      */
-    function getProfile($user_id = 0)
+    public function getProfile($user_id = 0)
     {
         $id = auth('sanctum')->user()->id;
         if ($user_id > 0) {
@@ -491,7 +491,7 @@ class CustomerController extends ResponseController
         return $this->sendResponse($response); //Assigning a Value
     }
 
-    function importBulkData(){
+    public function importBulkData(){
         try {
             $import = new CustomerBulkImport();
             Excel::import($import,storage_path('app/uploads/import_data/CustomerData.xlsx'));

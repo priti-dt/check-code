@@ -51,7 +51,7 @@ class EmployeeController extends ResponseController
         return $this->commonpagination($request, $data_query, $fields);
     }
 
-    function list_show_query($request="")
+    public function list_show_query($request="")
     {
         $data_query = User::with(['userlog' => function ($query) {
             $query->select('id', 'user_id', 'column_name', 'column_value', 'created_at');

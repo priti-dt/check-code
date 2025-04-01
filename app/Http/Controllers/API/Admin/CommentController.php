@@ -16,7 +16,7 @@ class CommentController extends ResponseController
     /**
      * Display a listing of the resource.
      */
-    function list_show_query()
+    public function list_show_query()
     {
         $data_query = Comment::where([['comments.status', 0]])->join('users', 'comments.created_by', '=', 'users.id');
         $data_query->select([
