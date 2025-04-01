@@ -31,7 +31,7 @@ class EmployeeController extends ResponseController
         if (!empty($request->keyword)) {
             $keyword = $request->keyword;
             // Define an array of status values
-            $statusValues = [2 => 'Active', 0 => 'Inactive'];           
+            $statusValues = [2 => 'Active', 0 => 'Inactive'];
         
             $data_query->where(function ($query) use ($keyword,  $statusValues) {
                 $query->where('users.name', 'LIKE', '%' . $keyword . '%')
@@ -187,7 +187,7 @@ class EmployeeController extends ResponseController
                 return $this->sendError($response);
             }
         }
-        // $ins_arr = $this->processImages($request);
+        
         $validator = Validator::make($request->all(), [
             'id' =>  'required',
             'can_upload_sparepart_image'=>'integer|in:0,1'

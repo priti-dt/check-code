@@ -103,14 +103,14 @@ class CustomerController extends ResponseController
         }
 
         /* this code is to manage Sorting - for With Relation Fields : starts */
-        $relation_sort_by = ['account_type' => 'account_type','primary_crm_name' => 'pcu.name', 'contact_person_number' => 'contact_person_number'];       
+        $relation_sort_by = ['account_type' => 'account_type','primary_crm_name' => 'pcu.name', 'contact_person_number' => 'contact_person_number'];
         if(isset($request->sortBy) && !empty($request->sortBy)){
             $sort_column_arr = array_keys($relation_sort_by);
             if(in_array($request->sortBy,$sort_column_arr)){
                 $request->sortBy = $relation_sort_by[$request->sortBy];
                 if(in_array($request->sortBy,['account_type','primary_crm_name','contact_person_number'])){
                     $data_query->Join('customer_details', 'customer_details.user_id', '=','users.id');
-                }        
+                }
                 
                 if(in_array($request->sortBy,['primary_crm_name'])){
                     $data_query->Join('users as pcu', 'pcu.id', '=','customer_details.primary_crm_user_id');
@@ -132,9 +132,6 @@ class CustomerController extends ResponseController
         $responses = $customerApiService->makeAPIRequest('api',$request);
         $message = "Data imported successfully!";
         
-        //$response['data'] = $responses;
-        //$response['message'] = $message;
-        //$response['status'] = 200;
         $responses['message'] =  isset($responses['message']) && is_array($responses['message']) ? implode(", ", $responses['message']) : $responses['message'];
         return $this->sendResponse($responses);
     }

@@ -122,7 +122,7 @@ class UsermanualtopicController extends ResponseController
                 $ins_arr
             );
         }
-        // print_r($request->attachment);die();  
+        
         if (request()->is('api/*')) {
             if ($qry) {
                 $response['status'] = 200;

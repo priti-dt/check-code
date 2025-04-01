@@ -141,19 +141,16 @@ class CommentController extends ResponseController
                 ['id' => $request->id],
                 $ins_arr
             );
-            // print_r($qry->toArray()['enquiry_po_detail_id']);die();
+            
             if ($request->enquiry_po_detail_id > 0) {
 
-                $user_id = auth()->user()->id;
                 $company_email = auth()->user()->email_id;
                 $customer_details = CustomerDetail::where('user_id', $existingenquiry->user_id)->first();
                 $primary_crm_user_id = $customer_details->primary_crm_user_id;
                 $user_query = User::where('id', $primary_crm_user_id);
 
-
                 $enquiry = EnquiryPoDetail::find($request->enquiry_po_detail_id);
-                $enquiry_id = $enquiry->toArray()['primary_crm_user_id'];
-                // print_r($enquiry->toArray()['primary_crm_user_id']);die();
+                $enquiry_id = $enquiry->toArray()['primary_crm_user_id'];                
                 $primary_user_mail = (User::find($enquiry_id))->toArray()['email_id'];
                 $primary_user_name = (User::find($enquiry_id))->toArray()['name'];
                 $user = $user_query->first();
