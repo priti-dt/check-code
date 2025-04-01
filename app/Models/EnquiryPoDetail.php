@@ -190,7 +190,7 @@ class EnquiryPoDetail extends Model
         return '';
     }
 
-    function getAgreedTermsByCustomersAttribute()
+    public function getAgreedTermsByCustomersAttribute()
     {
         if (isset($this->attributes['agreed_terms_by_customers']) && !empty($this->attributes['agreed_terms_by_customers'])) {
             return is_array($this->attributes['agreed_terms_by_customers']) ? $this->attributes['agreed_terms_by_customers'] : json_decode($this->attributes['agreed_terms_by_customers']);
@@ -198,7 +198,7 @@ class EnquiryPoDetail extends Model
         return [];
     }
 
-    function getAvailableTermsIdsAttribute()
+    public function getAvailableTermsIdsAttribute()
     {
         if (isset($this->attributes['available_terms_ids']) && !empty($this->attributes['available_terms_ids'])) {
             return is_array($this->attributes['available_terms_ids']) ? $this->attributes['available_terms_ids'] : json_decode($this->attributes['available_terms_ids']);
@@ -467,7 +467,7 @@ class EnquiryPoDetail extends Model
      * @param array $params
      * @return void
      */
-    function sendCreateEnquiryMail($params = [])
+    public function sendCreateEnquiryMail($params = [])
     {
         $user_id = auth()->user()->id;
         $enquiry_po_detail_id = isset($params['enquiry_po_detail_id']) ? $params['enquiry_po_detail_id'] : 0;
@@ -549,7 +549,7 @@ class EnquiryPoDetail extends Model
      * @param array $params
      * @return void
      */
-    function sendPlaceOrderMail($params = [])
+    public function sendPlaceOrderMail($params = [])
     {
         $user_id = auth()->user()->id;
         $enquiry_po_detail_id = isset($params['enquiry_po_detail_id']) ? $params['enquiry_po_detail_id'] : 0;

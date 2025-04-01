@@ -17,7 +17,7 @@ class UserManualsTopic extends Model
     protected $fillable = [
         'user_manual_id', 'title', 'description', 'attachment', 'youtube_link', 'other_link', 'status', 'created_by', 'updated_by'
     ];
-    function user_manual()
+    public function user_manual()
     {
         return $this->belongsTo(UserManual::class);
     }

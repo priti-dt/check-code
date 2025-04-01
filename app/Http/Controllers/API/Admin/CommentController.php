@@ -82,7 +82,6 @@ class CommentController extends ResponseController
         $user_id = auth()->user()->id;
         $user_email = auth()->user()->email_id;
         $user_name = auth()->user()->name;
-        $id = empty($request->id) ? 'NULL' : $request->id;
         if ($request->enquiry_po_detail_id > 0) {
             $existingenquiry = EnquiryPoDetail::find($request->enquiry_po_detail_id);
             if (!$existingenquiry) {
@@ -176,7 +175,6 @@ class CommentController extends ResponseController
                 MailHelper::sendMail($send_mail_type, $TemplateData);
             } else if ($request->unlisted_spare_requests_id > 0) {
 
-                $user_id = auth()->user()->id;
                 $company_email = auth()->user()->email_id;
                 $customer_details = CustomerDetail::where('user_id', $existingunlistedspare->created_by)->first();
                 $primary_crm_user_id = $customer_details->primary_crm_user_id;
