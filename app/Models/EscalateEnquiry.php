@@ -16,7 +16,7 @@ class EscalateEnquiry extends Model
      *
      * @return void
      */
-    function doescalation()
+    public function doescalation()
     {
         echo "\n";
         echo "\n"; echo(' =============== Escalation Cron Log '.date("Y-m-d H:i:s").' :: START ============');
@@ -60,7 +60,7 @@ class EscalateEnquiry extends Model
      *
      * @return void
      */
-    function escalateEnquiryOrPO($setting = []){
+    public function escalateEnquiryOrPO($setting = []){
 
         $setting_title = $setting['title'];
         $escalation_setting_id = $setting['id'];
@@ -196,7 +196,7 @@ class EscalateEnquiry extends Model
         } //If - Enquiry exists in given status
     }
 
-    function sendEscalationMail($id = 0)
+    public function sendEscalationMail($id = 0)
     {
         $enquiry = EnquiryPoDetail::where('enquiry_po_details.id', $id);  
         if($enquiry->exists()){
@@ -241,7 +241,7 @@ class EscalateEnquiry extends Model
      *
      * @return void
      */
-    function escalateUnlistedSpare( $setting = [])
+    public function escalateUnlistedSpare( $setting = [])
     {
         $setting_title = $setting['title'];
         $escalation_setting_id = $setting['id'];
@@ -376,7 +376,7 @@ class EscalateEnquiry extends Model
         } //If - Enquiry exists in given status
     }
 
-    function sendUnlistEscalationMail($enquiry_record = [])
+    public function sendUnlistEscalationMail($enquiry_record = [])
     {
         if(isset($enquiry_record['esc_user_email_id']) && !empty($enquiry_record['esc_user_email_id']) && isset($enquiry_record['token_no'])){
             $send_mail_type = 'ENQUIRY_PO_ESCALATION_MAIL';

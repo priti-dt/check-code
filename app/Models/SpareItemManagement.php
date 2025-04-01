@@ -97,7 +97,7 @@ class SpareItemManagement extends Model
      * @param [type] $terms_condition_ids
      * @return void
      */
-    function getTermsAndConditions($terms_condition_ids = null)
+    public function getTermsAndConditions($terms_condition_ids = null)
     {
         if ($terms_condition_ids != null) {
             $termsconditionsdata = TermsCondition::whereIn('id', json_decode($terms_condition_ids))->select('id', 'template_code', 'template_name', 'template_content', 'attachments', 'is_mandatory');

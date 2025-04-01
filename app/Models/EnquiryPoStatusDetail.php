@@ -88,7 +88,7 @@ class EnquiryPoStatusDetail extends Model
      * @param array $params
      * @return void
      */
-    function insertStatusDetail($params = [])
+    public function insertStatusDetail($params = [])
     {  
         if(!isset($params['enquiry_id'])){
             return false;
@@ -161,7 +161,7 @@ class EnquiryPoStatusDetail extends Model
         return $return;
     }
 
-    function insertStatus($params = []){
+    public function insertStatus($params = []){
 
         $user_id = auth()->user()->id;
         $enquiry_id = $params['enquiry_id'];

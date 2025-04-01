@@ -15,7 +15,7 @@ class UserManual extends Model
     protected $fillable = [
         'title', 'description', 'status', 'created_by', 'updated_by'
     ];
-    function user_manual_topic()
+    public function user_manual_topic()
     {
         return $this->hasMany(UserManualsTopic::class);
     }

@@ -104,7 +104,7 @@ class TermsCondition extends Model
      *
      * @return void
      */
-    function getSelectedSparesAndCustomersTerms($terms_ids = [],$params = [])
+    public function getSelectedSparesAndCustomersTerms($terms_ids = [],$params = [])
     {
         //NOTE:: $terms_ids in parameter contains -Terms Ids of Sparts in Cart
         $user_id = Auth::user()->id;

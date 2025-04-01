@@ -12,7 +12,7 @@ class MasterDepartment extends Model
     use HasFactory;
     protected $fillable = ['department_name'];
 
-    function employee_details()
+    public function employee_details()
     {
         return $this->hasMany(EmployeeDetail::class);
     }

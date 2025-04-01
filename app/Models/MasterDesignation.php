@@ -12,7 +12,7 @@ class MasterDesignation extends Model
     use HasFactory;
     protected $fillable = ['designation_name'];
 
-    function employee_details()
+    public function employee_details()
     {
         return $this->hasMany(EmployeeDetail::class);
     }

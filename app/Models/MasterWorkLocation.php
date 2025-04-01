@@ -12,7 +12,7 @@ class MasterWorkLocation extends Model
     use HasFactory;
     protected $fillable = ['work_location_name'];
 
-    function employee_details()
+    public function employee_details()
     {
         return $this->hasMany(EmployeeDetail::class);
     }
